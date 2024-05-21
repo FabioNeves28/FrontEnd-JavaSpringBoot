@@ -1,16 +1,21 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Appbar from './components/Appbar';
 import Estudante from './components/Estudante';
-import ListaDeEstudantes from './components/ListaDeEstudantes';
-import React from 'react';
+import Escola from './components/Escola';
+
 function App() {
   return (
-    <div className="App">
-      <Appbar />
-      <Estudante />
-  
-    </div>
+    <Router>
+      <div className="App">
+        <Appbar />
+        <Switch>
+          <Route path="/estudante" component={Estudante} />
+          <Route path="/escola" component={Escola} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
